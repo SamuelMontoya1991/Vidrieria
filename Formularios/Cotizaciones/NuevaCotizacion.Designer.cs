@@ -112,6 +112,7 @@ namespace Vidrieria.Formularios.Cotizaciones
             this.txtCodigoVendedor.Size = new System.Drawing.Size(86, 20);
             this.txtCodigoVendedor.TabIndex = 14;
             this.txtCodigoVendedor.Text = "1000";
+            this.txtCodigoVendedor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoVendedor_KeyDown);
             // 
             // label6
             // 
@@ -135,6 +136,7 @@ namespace Vidrieria.Formularios.Cotizaciones
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // txtObservaciones
             // 
@@ -248,6 +250,7 @@ namespace Vidrieria.Formularios.Cotizaciones
             this.btnNuevoCliente.Text = "Nuevo Cliente";
             this.btnNuevoCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNuevoCliente.UseVisualStyleBackColor = false;
+            this.btnNuevoCliente.Click += new System.EventHandler(this.btnNuevoCliente_Click);
             // 
             // btnBuscar
             // 
@@ -278,6 +281,7 @@ namespace Vidrieria.Formularios.Cotizaciones
             this.tblCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tblCliente.Size = new System.Drawing.Size(239, 75);
             this.tblCliente.TabIndex = 4;
+            this.tblCliente.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblCliente_CellDoubleClick);
             // 
             // nombrecliente
             // 
@@ -294,6 +298,7 @@ namespace Vidrieria.Formularios.Cotizaciones
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.Size = new System.Drawing.Size(161, 20);
             this.txtNombreCliente.TabIndex = 3;
+            this.txtNombreCliente.TextChanged += new System.EventHandler(this.txtNombreCliente_TextChanged);
             // 
             // label2
             // 
@@ -310,6 +315,7 @@ namespace Vidrieria.Formularios.Cotizaciones
             this.txtCodigoCliente.Name = "txtCodigoCliente";
             this.txtCodigoCliente.Size = new System.Drawing.Size(86, 20);
             this.txtCodigoCliente.TabIndex = 1;
+            this.txtCodigoCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoCliente_KeyDown);
             // 
             // label1
             // 

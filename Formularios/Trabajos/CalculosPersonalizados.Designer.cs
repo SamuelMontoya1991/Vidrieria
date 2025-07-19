@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CalculosPersonalizados));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnFacturar = new System.Windows.Forms.Button();
+            this.btnCotizar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.tblTrabajos = new System.Windows.Forms.DataGridView();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ancho = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,7 +49,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtAncho = new System.Windows.Forms.TextBox();
             this.tblNombres = new System.Windows.Forms.DataGridView();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.referencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.txtReferencia = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
@@ -59,9 +59,9 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnFacturar);
+            this.panel1.Controls.Add(this.btnCotizar);
+            this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Controls.Add(this.tblTrabajos);
             this.panel1.Controls.Add(this.btnNuevo);
             this.panel1.Controls.Add(this.label4);
@@ -79,34 +79,41 @@
             this.panel1.Size = new System.Drawing.Size(1002, 406);
             this.panel1.TabIndex = 0;
             // 
-            // button3
+            // btnFacturar
             // 
-            this.button3.Location = new System.Drawing.Point(812, 283);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(164, 44);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Facturar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnFacturar.Image = ((System.Drawing.Image)(resources.GetObject("btnFacturar.Image")));
+            this.btnFacturar.Location = new System.Drawing.Point(812, 283);
+            this.btnFacturar.Name = "btnFacturar";
+            this.btnFacturar.Size = new System.Drawing.Size(164, 44);
+            this.btnFacturar.TabIndex = 13;
+            this.btnFacturar.Text = "Facturar";
+            this.btnFacturar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFacturar.UseVisualStyleBackColor = true;
+            this.btnFacturar.Click += new System.EventHandler(this.btnFacturar_Click);
             // 
-            // button2
+            // btnCotizar
             // 
-            this.button2.Location = new System.Drawing.Point(812, 222);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(164, 44);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Cotizar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCotizar.Image = ((System.Drawing.Image)(resources.GetObject("btnCotizar.Image")));
+            this.btnCotizar.Location = new System.Drawing.Point(812, 222);
+            this.btnCotizar.Name = "btnCotizar";
+            this.btnCotizar.Size = new System.Drawing.Size(164, 44);
+            this.btnCotizar.TabIndex = 12;
+            this.btnCotizar.Text = "Cotizar";
+            this.btnCotizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCotizar.UseVisualStyleBackColor = true;
+            this.btnCotizar.Click += new System.EventHandler(this.btnCotizar_Click);
             // 
-            // button1
+            // btnGuardar
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(812, 162);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 44);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Guardar";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
+            this.btnGuardar.Location = new System.Drawing.Point(812, 162);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(164, 44);
+            this.btnGuardar.TabIndex = 11;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // tblTrabajos
             // 
@@ -123,11 +130,11 @@
             this.subtotal});
             this.tblTrabajos.Location = new System.Drawing.Point(13, 113);
             this.tblTrabajos.Name = "tblTrabajos";
-            this.tblTrabajos.ReadOnly = true;
             this.tblTrabajos.RowHeadersVisible = false;
             this.tblTrabajos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tblTrabajos.Size = new System.Drawing.Size(769, 235);
             this.tblTrabajos.TabIndex = 10;
+            this.tblTrabajos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblTrabajos_CellEndEdit);
             this.tblTrabajos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tblTrabajos_KeyDown);
             // 
             // descripcion
@@ -136,7 +143,6 @@
             this.descripcion.Frozen = true;
             this.descripcion.HeaderText = "Descripcion";
             this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
             this.descripcion.Width = 300;
             // 
             // ancho
@@ -145,7 +151,6 @@
             this.ancho.Frozen = true;
             this.ancho.HeaderText = "Ancho";
             this.ancho.Name = "ancho";
-            this.ancho.ReadOnly = true;
             this.ancho.Width = 60;
             // 
             // alto
@@ -154,7 +159,6 @@
             this.alto.Frozen = true;
             this.alto.HeaderText = "Alto";
             this.alto.Name = "alto";
-            this.alto.ReadOnly = true;
             this.alto.Width = 60;
             // 
             // area
@@ -163,7 +167,6 @@
             this.area.Frozen = true;
             this.area.HeaderText = "Area";
             this.area.Name = "area";
-            this.area.ReadOnly = true;
             this.area.Width = 60;
             // 
             // cantidad
@@ -172,7 +175,6 @@
             this.cantidad.Frozen = true;
             this.cantidad.HeaderText = "Cantidad";
             this.cantidad.Name = "cantidad";
-            this.cantidad.ReadOnly = true;
             this.cantidad.Width = 90;
             // 
             // precio
@@ -181,7 +183,6 @@
             this.precio.Frozen = true;
             this.precio.HeaderText = "Precio";
             this.precio.Name = "precio";
-            this.precio.ReadOnly = true;
             // 
             // subtotal
             // 
@@ -189,23 +190,23 @@
             this.subtotal.Frozen = true;
             this.subtotal.HeaderText = "Subtotal";
             this.subtotal.Name = "subtotal";
-            this.subtotal.ReadOnly = true;
             // 
             // btnNuevo
             // 
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
-            this.btnNuevo.Location = new System.Drawing.Point(668, 13);
+            this.btnNuevo.Location = new System.Drawing.Point(812, 13);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(114, 38);
             this.btnNuevo.TabIndex = 9;
             this.btnNuevo.Text = "Nuevo Trabajo";
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(590, 34);
+            this.label4.Location = new System.Drawing.Point(734, 34);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 8;
@@ -214,17 +215,18 @@
             // txtCantidad
             // 
             this.txtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad.Location = new System.Drawing.Point(582, 52);
+            this.txtCantidad.Location = new System.Drawing.Point(726, 52);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(60, 20);
             this.txtCantidad.TabIndex = 7;
             this.txtCantidad.Text = "1";
             this.txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCantidad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCantidad_KeyDown);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(503, 50);
+            this.label3.Location = new System.Drawing.Point(647, 50);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 13);
             this.label3.TabIndex = 6;
@@ -233,17 +235,18 @@
             // txtAlto
             // 
             this.txtAlto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAlto.Location = new System.Drawing.Point(495, 68);
+            this.txtAlto.Location = new System.Drawing.Point(639, 68);
             this.txtAlto.Name = "txtAlto";
             this.txtAlto.Size = new System.Drawing.Size(60, 20);
             this.txtAlto.TabIndex = 5;
             this.txtAlto.Text = "1";
             this.txtAlto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtAlto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAlto_KeyDown);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(503, 9);
+            this.label2.Location = new System.Drawing.Point(647, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 4;
@@ -252,12 +255,13 @@
             // txtAncho
             // 
             this.txtAncho.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAncho.Location = new System.Drawing.Point(495, 27);
+            this.txtAncho.Location = new System.Drawing.Point(639, 27);
             this.txtAncho.Name = "txtAncho";
             this.txtAncho.Size = new System.Drawing.Size(60, 20);
             this.txtAncho.TabIndex = 3;
             this.txtAncho.Text = "1";
             this.txtAncho.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtAncho.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAncho_KeyDown);
             // 
             // tblNombres
             // 
@@ -265,21 +269,23 @@
             this.tblNombres.AllowUserToDeleteRows = false;
             this.tblNombres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tblNombres.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nombre});
+            this.referencia});
             this.tblNombres.Location = new System.Drawing.Point(234, 13);
             this.tblNombres.Name = "tblNombres";
             this.tblNombres.ReadOnly = true;
             this.tblNombres.RowHeadersVisible = false;
-            this.tblNombres.Size = new System.Drawing.Size(255, 83);
+            this.tblNombres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tblNombres.Size = new System.Drawing.Size(399, 83);
             this.tblNombres.TabIndex = 2;
+            this.tblNombres.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblNombres_CellDoubleClick);
             // 
-            // nombre
+            // referencia
             // 
-            this.nombre.DataPropertyName = "nombre";
-            this.nombre.HeaderText = "Referencia";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            this.nombre.Width = 250;
+            this.referencia.DataPropertyName = "referencia";
+            this.referencia.HeaderText = "Referencia";
+            this.referencia.Name = "referencia";
+            this.referencia.ReadOnly = true;
+            this.referencia.Width = 390;
             // 
             // label1
             // 
@@ -298,6 +304,7 @@
             this.txtReferencia.Size = new System.Drawing.Size(180, 20);
             this.txtReferencia.TabIndex = 0;
             this.txtReferencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtReferencia.TextChanged += new System.EventHandler(this.txtReferencia_TextChanged);
             // 
             // CalculosPersonalizados
             // 
@@ -331,7 +338,10 @@
         private System.Windows.Forms.TextBox txtAlto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtAncho;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnFacturar;
+        private System.Windows.Forms.Button btnCotizar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn referencia;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn ancho;
         private System.Windows.Forms.DataGridViewTextBoxColumn alto;
@@ -339,8 +349,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
     }
 }

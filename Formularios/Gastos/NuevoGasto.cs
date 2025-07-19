@@ -101,7 +101,7 @@ namespace Vidrieria.Formularios.Gastos
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            string nuevoGasto = PedirDescripcion.PedirDescripcionGasto("Nuevo Gasto", "Ingrese la descripción del nuevo gasto:");
+            string nuevoGasto = PedirDescripcion.PedirDescripcionGeneral("Nuevo Gasto", "Ingrese la descripción del nuevo gasto:");
 
             if (!string.IsNullOrEmpty(nuevoGasto))
             {

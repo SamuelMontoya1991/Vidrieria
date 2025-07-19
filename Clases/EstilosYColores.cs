@@ -49,7 +49,7 @@ namespace Vidrieria.Clases
         {
             boton.BackColor = TemaDeApp.FondoBoton;
             boton.ForeColor = TemaDeApp.Texto;
-            boton.FlatStyle = FlatStyle.Flat;
+            boton.FlatStyle = FlatStyle.Standard;
             boton.FlatAppearance.BorderSize = 0;
             boton.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             boton.Cursor = Cursors.Hand;
@@ -69,7 +69,8 @@ namespace Vidrieria.Clases
         {
             dgv.BackgroundColor = TemaDeApp.FondoPanel;
             dgv.GridColor = TemaDeApp.Borde;
-            dgv.BorderStyle = BorderStyle.None;
+            dgv.BorderStyle = BorderStyle.Fixed3D;
+           
 
             dgv.EnableHeadersVisualStyles = false;
 
@@ -79,7 +80,7 @@ namespace Vidrieria.Clases
 
             dgv.DefaultCellStyle.BackColor = TemaDeApp.FondoPanel;
             dgv.DefaultCellStyle.ForeColor = TemaDeApp.Texto;
-            dgv.DefaultCellStyle.SelectionBackColor = TemaDeApp.FondoBoton;
+            dgv.DefaultCellStyle.SelectionBackColor = TemaDeApp.TemaActual == Tema.Claro ? ColoresApp.Claro_BotonInactivo : ColoresApp.Claro_BotonActivo;
             dgv.DefaultCellStyle.SelectionForeColor = TemaDeApp.Texto;
 
             dgv.RowsDefaultCellStyle.BackColor = TemaDeApp.FondoPanel;
@@ -88,9 +89,22 @@ namespace Vidrieria.Clases
             dgv.RowHeadersVisible = false;
             dgv.AllowUserToAddRows = false;
             dgv.AllowUserToResizeRows = false;
-            
 
-            dgv.Refresh(); // Fuerza el repintado
+            dgv.Refresh();
+        }
+        public static void AplicarEstiloTextBox(TextBox txt)
+        {
+            txt.BackColor = TemaDeApp.FondoPanel;
+            txt.ForeColor = TemaDeApp.Texto;
+            txt.BorderStyle = BorderStyle.Fixed3D;
+            txt.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        }
+        public static void AplicarEstiloTextBox(MaskedTextBox txt)
+        {
+            txt.BackColor = TemaDeApp.FondoPanel;
+            txt.ForeColor = TemaDeApp.Texto;
+            txt.BorderStyle = BorderStyle.Fixed3D;
+            txt.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
         }
 
         public static void AplicarEstiloRecursivo(Control control)
@@ -104,13 +118,30 @@ namespace Vidrieria.Clases
                 else if (c is DataGridView dgv)
                     AplicarEstiloDataGrid(dgv);
                 else if (c is MdiClient mp)
-                {
                     AplicarEstiloMdi(mp);
+                else if (c is TextBox txt)
+                    AplicarEstiloTextBox(txt);
+                else if (c is Label lbl)
+                {
+                    lbl.BackColor = Color.Transparent; 
+                    lbl.ForeColor = TemaDeApp.Texto;
                 }
+                else if (c is ComboBox cb)
+                {
+                    cb.BackColor = TemaDeApp.FondoPanel;
+                    cb.ForeColor = TemaDeApp.Texto;
+                    cb.FlatStyle = FlatStyle.Standard;
+                }
+                else if (c is CheckBox chk)
+                {
+                    chk.BackColor = Color.Transparent; 
+                    chk.ForeColor = TemaDeApp.Texto;
+                }
+                else if (c is MaskedTextBox mtb)
+                     AplicarEstiloTextBox(mtb);
                 else
                     c.BackColor = TemaDeApp.FondoPanel;
-
-                c.ForeColor = TemaDeApp.Texto;
+                    c.ForeColor = TemaDeApp.Texto;
 
                 if (c.HasChildren)
                     AplicarEstiloRecursivo(c);

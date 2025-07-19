@@ -4,7 +4,7 @@ namespace Vidrieria.Clases
 {
     public class PedirDescripcion
     {
-        public static string PedirDescripcionGasto(string titulo, string mensaje)
+        public static string PedirDescripcionGeneral(string titulo, string mensaje)
         {
             Form prompt = new Form()
             {

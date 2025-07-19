@@ -248,7 +248,7 @@ namespace Vidrieria.Formularios.Trabajos
             // cbMaderaP
             // 
             this.cbMaderaP.AutoSize = true;
-            this.cbMaderaP.Location = new System.Drawing.Point(1046, 266);
+            this.cbMaderaP.Location = new System.Drawing.Point(1046, 272);
             this.cbMaderaP.Name = "cbMaderaP";
             this.cbMaderaP.Size = new System.Drawing.Size(15, 14);
             this.cbMaderaP.TabIndex = 24;
@@ -258,7 +258,7 @@ namespace Vidrieria.Formularios.Trabajos
             // cbMadera165
             // 
             this.cbMadera165.AutoSize = true;
-            this.cbMadera165.Location = new System.Drawing.Point(1028, 266);
+            this.cbMadera165.Location = new System.Drawing.Point(1028, 272);
             this.cbMadera165.Name = "cbMadera165";
             this.cbMadera165.Size = new System.Drawing.Size(15, 14);
             this.cbMadera165.TabIndex = 23;
@@ -268,7 +268,7 @@ namespace Vidrieria.Formularios.Trabajos
             // cbBronceP
             // 
             this.cbBronceP.AutoSize = true;
-            this.cbBronceP.Location = new System.Drawing.Point(1046, 248);
+            this.cbBronceP.Location = new System.Drawing.Point(1046, 254);
             this.cbBronceP.Name = "cbBronceP";
             this.cbBronceP.Size = new System.Drawing.Size(15, 14);
             this.cbBronceP.TabIndex = 22;
@@ -278,7 +278,7 @@ namespace Vidrieria.Formularios.Trabajos
             // cbBronce165
             // 
             this.cbBronce165.AutoSize = true;
-            this.cbBronce165.Location = new System.Drawing.Point(1028, 248);
+            this.cbBronce165.Location = new System.Drawing.Point(1028, 254);
             this.cbBronce165.Name = "cbBronce165";
             this.cbBronce165.Size = new System.Drawing.Size(15, 14);
             this.cbBronce165.TabIndex = 21;
@@ -288,7 +288,7 @@ namespace Vidrieria.Formularios.Trabajos
             // cbNaturalP
             // 
             this.cbNaturalP.AutoSize = true;
-            this.cbNaturalP.Location = new System.Drawing.Point(1046, 231);
+            this.cbNaturalP.Location = new System.Drawing.Point(1046, 235);
             this.cbNaturalP.Name = "cbNaturalP";
             this.cbNaturalP.Size = new System.Drawing.Size(15, 14);
             this.cbNaturalP.TabIndex = 20;
@@ -298,7 +298,7 @@ namespace Vidrieria.Formularios.Trabajos
             // cbNatural165
             // 
             this.cbNatural165.AutoSize = true;
-            this.cbNatural165.Location = new System.Drawing.Point(1028, 231);
+            this.cbNatural165.Location = new System.Drawing.Point(1028, 235);
             this.cbNatural165.Name = "cbNatural165";
             this.cbNatural165.Size = new System.Drawing.Size(15, 14);
             this.cbNatural165.TabIndex = 19;

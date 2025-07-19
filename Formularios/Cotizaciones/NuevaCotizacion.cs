@@ -18,6 +18,7 @@ namespace Vidrieria.Formularios.Cotizaciones
         List<MaterialesUsados> materialesUsados = new List<MaterialesUsados>();
         List<DetalleCotizacion> detalles = new List<DetalleCotizacion>();
         Tema temaActual;
+        
 
 
         private void calcularTotales()
@@ -140,52 +141,60 @@ namespace Vidrieria.Formularios.Cotizaciones
                 );
                 detalles.Add(detalle);
 
-                for (int o = 0; o < listaTrabajos[i].Aluminio!.RowCount; o++)
+                if (listaTrabajos[i].Aluminio == null)
                 {
-                    MaterialesUsados materiales = new MaterialesUsados
-                    {
-                        IdCotizacion = idCotizacion,
-                        Descripcion = listaTrabajos[i].Aluminio!.Rows[o].Cells[5].Value.ToString()!,
-                        Utilizado = Convert.ToDecimal(listaTrabajos[i].Aluminio!.Rows[o].Cells[6].Value.ToString()!),
-                        id_trabajo = Convert.ToInt32(listaTrabajos[i]!.Id)
-                    };
-                    materialesUsados.Add(materiales);
-                }
 
-                for (int o = 0; o < listaTrabajos[i].Hoja!.RowCount; o++)
-                {
-                    MaterialesUsados materiales = new MaterialesUsados
-                    {
-                        IdCotizacion = idCotizacion,
-                        Descripcion = listaTrabajos[i].Hoja!.Rows[o].Cells[5].Value.ToString()!,
-                        Utilizado = Convert.ToDecimal(listaTrabajos[i].Hoja!.Rows[o].Cells[6].Value.ToString()!),
-                        id_trabajo = Convert.ToInt32(listaTrabajos[i]!.Id)
-                    };
-                    materialesUsados.Add(materiales);
                 }
-
-                for (int o = 0; o < listaTrabajos[i].Moldura!.RowCount; o++)
+                else
                 {
-                    MaterialesUsados materiales = new MaterialesUsados
+                    for (int o = 0; o < listaTrabajos[i].Aluminio!.RowCount; o++)
                     {
-                        IdCotizacion = idCotizacion,
-                        Descripcion = listaTrabajos[i].Moldura!.Rows[o].Cells[5].Value.ToString()!,
-                        Utilizado = Convert.ToDecimal(listaTrabajos[i].Moldura!.Rows[o].Cells[6].Value.ToString()!),
-                        id_trabajo = Convert.ToInt32(listaTrabajos[i]!.Id)
-                    };
-                    materialesUsados.Add(materiales);
-                }
+                        MaterialesUsados materiales = new MaterialesUsados
+                        {
+                            IdCotizacion = idCotizacion,
+                            Descripcion = listaTrabajos[i].Aluminio!.Rows[o].Cells[5].Value.ToString()!,
+                            Utilizado = Convert.ToDecimal(listaTrabajos[i].Aluminio!.Rows[o].Cells[6].Value.ToString()!),
+                            id_trabajo = Convert.ToInt32(listaTrabajos[i]!.Id)
+                        };
+                        materialesUsados.Add(materiales);
+                    }
 
-                for (int o = 0; o < listaTrabajos[i].Accesorio!.RowCount; o++)
-                {
-                    MaterialesUsados materiales = new MaterialesUsados
+
+                    for (int o = 0; o < listaTrabajos[i].Hoja!.RowCount; o++)
                     {
-                        IdCotizacion = idCotizacion,
-                        Descripcion = listaTrabajos[i].Accesorio!.Rows[o].Cells[5].Value.ToString()!,
-                        Utilizado = Convert.ToDecimal(listaTrabajos[i].Accesorio!.Rows[o].Cells[6].Value.ToString()!),
-                        id_trabajo = Convert.ToInt32(listaTrabajos[i]!.Id)
-                    };
-                    materialesUsados.Add(materiales);
+                        MaterialesUsados materiales = new MaterialesUsados
+                        {
+                            IdCotizacion = idCotizacion,
+                            Descripcion = listaTrabajos[i].Hoja!.Rows[o].Cells[5].Value.ToString()!,
+                            Utilizado = Convert.ToDecimal(listaTrabajos[i].Hoja!.Rows[o].Cells[6].Value.ToString()!),
+                            id_trabajo = Convert.ToInt32(listaTrabajos[i]!.Id)
+                        };
+                        materialesUsados.Add(materiales);
+                    }
+
+                    for (int o = 0; o < listaTrabajos[i].Moldura!.RowCount; o++)
+                    {
+                        MaterialesUsados materiales = new MaterialesUsados
+                        {
+                            IdCotizacion = idCotizacion,
+                            Descripcion = listaTrabajos[i].Moldura!.Rows[o].Cells[5].Value.ToString()!,
+                            Utilizado = Convert.ToDecimal(listaTrabajos[i].Moldura!.Rows[o].Cells[6].Value.ToString()!),
+                            id_trabajo = Convert.ToInt32(listaTrabajos[i]!.Id)
+                        };
+                        materialesUsados.Add(materiales);
+                    }
+
+                    for (int o = 0; o < listaTrabajos[i].Accesorio!.RowCount; o++)
+                    {
+                        MaterialesUsados materiales = new MaterialesUsados
+                        {
+                            IdCotizacion = idCotizacion,
+                            Descripcion = listaTrabajos[i].Accesorio!.Rows[o].Cells[5].Value.ToString()!,
+                            Utilizado = Convert.ToDecimal(listaTrabajos[i].Accesorio!.Rows[o].Cells[6].Value.ToString()!),
+                            id_trabajo = Convert.ToInt32(listaTrabajos[i]!.Id)
+                        };
+                        materialesUsados.Add(materiales);
+                    }
                 }
             }
 
@@ -321,5 +330,7 @@ namespace Vidrieria.Formularios.Cotizaciones
             TemaDeApp.CambiarTema(tema);
             EstilosControles.AplicarEstiloFormulario(this);
         }
+
+        
     }
 }

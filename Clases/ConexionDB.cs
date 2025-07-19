@@ -15,7 +15,7 @@ namespace Vidrieria.Clases
         private string servidor = "DESKTOP-J7CCPL4";
         private string baseDatos = "Vidrieria";
         private string usuario = "samuel";
-        private string password = "Master2024.";
+        private string password = "Master2025.";
         private readonly string connectionString;
 
         public ConexionDB()
@@ -586,22 +586,25 @@ namespace Vidrieria.Clases
                         }
                     }
 
-                    // Insertar MaterialesUsados
-                    foreach (var material in cotizacionCompleta.MaterialesUsados)
-                    {
-                        string queryMaterial = @"
-                    INSERT INTO Sis_Materiales_Usados (id_cotizacion, descripcion, usado, id_trabajo)
-                    VALUES (@id_cotizacion, @descripcion, @utilizado, @id_trabajo)";
-
-                        using (SqlCommand cmd = new SqlCommand(queryMaterial, conexion, transaccion))
+                    if (cotizacionCompleta.MaterialesUsados.Count == 0) { } else {
+                        // Insertar MaterialesUsados
+                        foreach (var material in cotizacionCompleta.MaterialesUsados)
                         {
-                            cmd.Parameters.AddWithValue("@id_cotizacion", material.IdCotizacion);
-                            cmd.Parameters.AddWithValue("@descripcion", material.Descripcion);
-                            cmd.Parameters.AddWithValue("@utilizado", material.Utilizado);
-                            cmd.Parameters.AddWithValue("@id_trabajo", material.id_trabajo);
-                            cmd.ExecuteNonQuery();
+                            string queryMaterial = @"
+                                INSERT INTO Sis_Materiales_Usados (id_cotizacion, descripcion, usado, id_trabajo)
+                                VALUES (@id_cotizacion, @descripcion, @utilizado, @id_trabajo)";
+
+                            using (SqlCommand cmd = new SqlCommand(queryMaterial, conexion, transaccion))
+                            {
+                                cmd.Parameters.AddWithValue("@id_cotizacion", material.IdCotizacion);
+                                cmd.Parameters.AddWithValue("@descripcion", material.Descripcion);
+                                cmd.Parameters.AddWithValue("@utilizado", material.Utilizado);
+                                cmd.Parameters.AddWithValue("@id_trabajo", material.id_trabajo);
+                                cmd.ExecuteNonQuery();
+                            }
                         }
                     }
+                        
 
                     transaccion.Commit();
                     return true;

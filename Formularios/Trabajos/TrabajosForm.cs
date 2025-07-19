@@ -1684,7 +1684,7 @@ namespace Vidrieria.Formularios.Trabajos
         {
             InitializeComponent();
 
-            btnLivianaCorrediza.BackColor = Color.FromArgb(255, 255, 192);
+            
             String[] fila1 = { "", "" };
             tblCostos.Rows.Add(fila1);
             tblCostos.Rows.Add(fila1);
@@ -1693,7 +1693,7 @@ namespace Vidrieria.Formularios.Trabajos
             tblVentas.Rows.Add(fila1);
             tblVentas.Rows.Add(fila1);
             cargarLivianaCorrediza();
-            btnLivianaCorrediza.Focus();
+            cambiarColores(true, 1);
             txtAncho.Focus();
         }
 
@@ -2246,7 +2246,7 @@ namespace Vidrieria.Formularios.Trabajos
             var padre = this.MdiParent as MenuPrincipalForm;
             if (padre != null)
             {
-                padre.AbrirFormularioCentrado<Facturar>(this.usuario!, trabajos);
+                padre.AbrirFormularioCentrado<Facturar>(this.usuario!, trabajos,0,null,temaActual);
             }
         }
 
