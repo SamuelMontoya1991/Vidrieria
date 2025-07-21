@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 
+
 namespace Vidrieria.Clases
 {
     public class PedirDescripcion

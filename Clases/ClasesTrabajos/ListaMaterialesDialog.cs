@@ -8,6 +8,7 @@ namespace Vidrieria.Clases.ClasesTrabajos
     using System.Linq;
     using System.Windows.Forms;
 
+
     public class ListaMaterialesDialog : Form
     {
         private readonly List<MaterialesUsados> _materiales;

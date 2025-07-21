@@ -10,11 +10,13 @@ using System.Windows.Forms;
 using Vidrieria.Clases;
 using Vidrieria.Clases.ClasesTrabajos;
 using Vidrieria.Formularios.Clientes;
+using Vidrieria.Formularios.Compras;
 using Vidrieria.Formularios.Empresa;
 using Vidrieria.Formularios.Factura;
 using Vidrieria.Formularios.Gastos;
 using Vidrieria.Formularios.Login;
 using Vidrieria.Formularios.Materiales;
+using Vidrieria.Formularios.Proveedores;
 using Vidrieria.Formularios.ReportesEnSistema;
 using Vidrieria.Formularios.Trabajos;
 using Vidrieria.Interfaces;
@@ -238,7 +240,15 @@ namespace Vidrieria.Formularios.MenuPrincipal
             this.usuario = usuario;
         }
 
-        
+        private void administrarProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioCentrado<AdministrarProveedores>(this.usuario, null, 0, null, this.temaActual);
+        }
+
+        private void nuevaCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioCentrado<NuevaCompra>(this.usuario, null, 0, null, this.temaActual);
+        }
     }
 
 }

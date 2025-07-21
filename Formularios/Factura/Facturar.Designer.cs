@@ -60,6 +60,7 @@
             this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblFactura = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblClientes)).BeginInit();
@@ -69,6 +70,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.panel1.Controls.Add(this.btnBuscar);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.btnCancelar);
             this.panel1.Controls.Add(this.btnFacturar);
@@ -225,7 +227,7 @@
             // 
             this.tblClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.tblClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tblClientes.Location = new System.Drawing.Point(85, 70);
+            this.tblClientes.Location = new System.Drawing.Point(70, 78);
             this.tblClientes.Name = "tblClientes";
             this.tblClientes.Size = new System.Drawing.Size(197, 77);
             this.tblClientes.TabIndex = 24;
@@ -234,7 +236,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(36, 46);
+            this.label6.Location = new System.Drawing.Point(21, 54);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 13);
             this.label6.TabIndex = 23;
@@ -242,7 +244,7 @@
             // 
             // txtNombreCliente
             // 
-            this.txtNombreCliente.Location = new System.Drawing.Point(86, 43);
+            this.txtNombreCliente.Location = new System.Drawing.Point(71, 51);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.Size = new System.Drawing.Size(196, 20);
             this.txtNombreCliente.TabIndex = 22;
@@ -251,7 +253,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 22);
+            this.label2.Location = new System.Drawing.Point(12, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 21;
@@ -259,7 +261,7 @@
             // 
             // txtClienteID
             // 
-            this.txtClienteID.Location = new System.Drawing.Point(85, 18);
+            this.txtClienteID.Location = new System.Drawing.Point(70, 14);
             this.txtClienteID.Name = "txtClienteID";
             this.txtClienteID.Size = new System.Drawing.Size(100, 20);
             this.txtClienteID.TabIndex = 20;
@@ -390,7 +392,7 @@
             this.lblFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFactura.Location = new System.Drawing.Point(343, 9);
             this.lblFactura.Name = "lblFactura";
-            this.lblFactura.Size = new System.Drawing.Size(158, 16);
+            this.lblFactura.Size = new System.Drawing.Size(178, 16);
             this.lblFactura.TabIndex = 1;
             this.lblFactura.Text = "000-001-0000-0000001";
             // 
@@ -402,6 +404,19 @@
             this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "#Factura";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(176, 2);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(84, 43);
+            this.btnBuscar.TabIndex = 36;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // Facturar
             // 
@@ -454,5 +469,6 @@
         private System.Windows.Forms.Button btnFacturar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using Vidrieria.Clases;
+using Vidrieria.Clases.Buscadores;
 using Vidrieria.Clases.ClasesTrabajos;
 using Vidrieria.Formularios.Clientes;
 using Vidrieria.Interfaces;
@@ -331,6 +332,16 @@ namespace Vidrieria.Formularios.Cotizaciones
             EstilosControles.AplicarEstiloFormulario(this);
         }
 
-        
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            DataTable datosClientes = BD.LlenarTabla("select id_cliente,nombreCliente from sis_clientes"); // o datos simulados
+            var buscador = new FormBuscadorGenerico(datosClientes, "Buscar Cliente", "Nombrecliente");
+
+            if (buscador.ShowDialog() == DialogResult.OK)
+            {
+                txtCodigoCliente.Text = buscador.IdSeleccionado.ToString();
+                txtNombreCliente.Text = buscador.NombreSeleccionado;
+            }
+        }
     }
 }

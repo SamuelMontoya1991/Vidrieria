@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
+
 namespace Vidrieria.Clases.ClasesTrabajos
 {
     public class NuevoTrabajo

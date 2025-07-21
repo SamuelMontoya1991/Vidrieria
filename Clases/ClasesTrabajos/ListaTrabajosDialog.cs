@@ -4,6 +4,7 @@ using System.Windows.Forms;
 
 namespace Vidrieria.Clases.ClasesTrabajos
 {
+
     public partial class ListaTrabajosDialog : Form
     {
         public ListaTrabajosDialog(List<NuevoTrabajo> trabajos)

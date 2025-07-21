@@ -9,6 +9,7 @@
         public string? fecha_limite { get; set; }
         public int? estado { get; set; }
 
+
         public ModeloCai() { }
         public ModeloCai(string? id_cai, string? cai, string? rango_inicial, string? rango_final, string? fecha_limite, int? estado)
         {

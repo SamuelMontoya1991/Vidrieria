@@ -215,7 +215,7 @@ namespace Vidrieria.Formularios.Clientes
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            txtCodigo.Text = BD.devolverUnValor("select isnull(max(id_cliente+1),1000) from sis_clientes");
+            txtCodigo.Text = BD.devolverUnValor("select isnull(max(id_cliente+1),1) from sis_clientes");
             txtNombre.Focus();
         }
 

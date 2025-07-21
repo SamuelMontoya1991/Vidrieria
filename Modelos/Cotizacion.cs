@@ -14,7 +14,6 @@ namespace Vidrieria.Modelos
         public string? Observaciones { get; set; }
         public int? Factura { get; set; }
 
-
         public Cotizacion(int idCotizacion, int clienteId, int usuarioId, int empresaId, int idEmpleado, string? observaciones, int? factura, DateTime? fecha = null)
         {
             IdCotizacion = idCotizacion;

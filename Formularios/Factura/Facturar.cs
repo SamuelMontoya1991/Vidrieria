@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vidrieria.Clases;
+using Vidrieria.Clases.Buscadores;
 using Vidrieria.Clases.ClasesTrabajos;
 using Vidrieria.Formularios.MenuPrincipal;
 using Vidrieria.Interfaces;
@@ -406,6 +407,18 @@ namespace Vidrieria.Formularios.Factura
             listaTrabajos = trabajos;
             LlenarTrabajos(trabajos);
             
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            DataTable datosClientes = BD.LlenarTabla("select id_cliente,nombreCliente from sis_clientes"); // o datos simulados
+            var buscador = new FormBuscadorGenerico(datosClientes, "Buscar Cliente", "Nombrecliente");
+
+            if (buscador.ShowDialog() == DialogResult.OK)
+            {
+                txtClienteID.Text = buscador.IdSeleccionado.ToString();
+                txtNombreCliente.Text = buscador.NombreSeleccionado;
+            }
         }
 
         public void AplicarTema(Tema tema)

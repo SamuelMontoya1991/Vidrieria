@@ -948,7 +948,6 @@ namespace Vidrieria.Clases
                 }
             }
         }
-
         public List<FacturaVencida> ObtenerFacturasVencidas()
         {
             var facturasVencidas = new List<FacturaVencida>();
@@ -979,6 +978,108 @@ namespace Vidrieria.Clases
                 }
             }
             return facturasVencidas;
+        }
+        //metodos proveedores
+        public bool InsertarProveedor(NuevoProveedor proveedor)
+        {
+            bool insertado = false;
+
+            using (SqlConnection conexion = new SqlConnection(connectionString))
+            {
+                string query = @"INSERT INTO sis_proveedores 
+                        (id_proveedor, nombreproveedor, identidad, RTN, direccion, telefono, correo) 
+                        VALUES 
+                        (@IdProveedor, @NombreProveedor, @Identidad, @RTN, @Direccion, @Telefono, @Correo)";
+
+                using (SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.Parameters.AddWithValue("@IdProveedor", proveedor.IdProveedor);
+                    comando.Parameters.AddWithValue("@NombreProveedor", proveedor.NombreProveedor);
+                    comando.Parameters.AddWithValue("@Identidad", proveedor.Identidad);
+                    comando.Parameters.AddWithValue("@RTN", proveedor.Rtn);
+                    comando.Parameters.AddWithValue("@Direccion", proveedor.Direccion);
+                    comando.Parameters.AddWithValue("@Telefono", proveedor.Telefono);
+                    comando.Parameters.AddWithValue("@Correo", proveedor.Correo);
+
+                    try
+                    {
+                        conexion.Open();
+                        int filasAfectadas = comando.ExecuteNonQuery();
+                        insertado = filasAfectadas > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error al insertar proveedor con ID: " + ex.Message);
+                    }
+                }
+            }
+
+            return insertado;
+        }
+        public bool ActualizarProveedor(NuevoProveedor proveedor)
+        {
+            bool actualizado = false;
+
+            using (SqlConnection conexion = new SqlConnection(connectionString))
+            {
+                string query = @"UPDATE sis_proveedores 
+                         SET nombreProveedor = @NombreProveedor,
+                             identidad = @Identidad,
+                             RTN = @RTN,
+                             direccion = @Direccion,
+                             telefono = @Telefono,
+                             correo = @Correo
+                         WHERE id_proveedor = @IdProveedor";
+
+                using (SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.Parameters.AddWithValue("@IdProveedor", proveedor.IdProveedor);
+                    comando.Parameters.AddWithValue("@NombreProveedor", proveedor.NombreProveedor);
+                    comando.Parameters.AddWithValue("@Identidad", proveedor.Identidad);
+                    comando.Parameters.AddWithValue("@RTN", proveedor.Rtn);
+                    comando.Parameters.AddWithValue("@Direccion", proveedor.Direccion);
+                    comando.Parameters.AddWithValue("@Telefono", proveedor.Telefono);
+                    comando.Parameters.AddWithValue("@Correo", proveedor.Correo);
+
+                    try
+                    {
+                        conexion.Open();
+                        int filasAfectadas = comando.ExecuteNonQuery();
+                        actualizado = filasAfectadas > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error al actualizar proveedor: " + ex.Message);
+                    }
+                }
+            }
+
+            return actualizado;
+        }
+        //metodos de compras
+        public DataRow? BuscarMaterial(string valor, string tipoBusqueda)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = tipoBusqueda == "id_material"
+                    ? "SELECT id_accesorio as id_material, descripcion, 0.00 as precio FROM vwMateriales WHERE id_accesorio = @valor"
+                    : "SELECT id_accesorio as id_material, descripcion, 0.00 as precio FROM vwMateriales WHERE descripcion LIKE @valor";
+
+                using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
+                {
+                    if (tipoBusqueda == "id_material")
+                        da.SelectCommand.Parameters.AddWithValue("@valor", valor);
+                    else
+                        da.SelectCommand.Parameters.AddWithValue("@valor", "%" + valor + "%");
+
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                        return dt.Rows[0]; // si hay más, toma el primero
+                }
+            }
+            return null;
         }
 
 

@@ -59,6 +59,11 @@ namespace Vidrieria.Formularios.MenuPrincipal
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.administrarProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cuentasPorPagarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cuentasPorCobrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevaCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opcionesPrincipales.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,14 +73,15 @@ namespace Vidrieria.Formularios.MenuPrincipal
             this.opcionesPrincipales.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ventasToolStripMenuItem,
             this.gastosToolStripMenuItem,
-            this.cuentasToolStripMenuItem,
             this.inventarioToolStripMenuItem,
+            this.cuentasToolStripMenuItem,
             this.empresaToolStripMenuItem,
             this.materialesToolStripMenuItem,
+            this.proveedoresToolStripMenuItem,
             this.clientesToolStripMenuItem,
             this.empleadosToolStripMenuItem,
-            this.reportesToolStripMenuItem,
             this.temaToolStripMenuItem,
+            this.reportesToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.opcionesPrincipales.Location = new System.Drawing.Point(0, 0);
             this.opcionesPrincipales.Name = "opcionesPrincipales";
@@ -136,8 +142,12 @@ namespace Vidrieria.Formularios.MenuPrincipal
             // 
             // cuentasToolStripMenuItem
             // 
+            this.cuentasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cuentasPorPagarToolStripMenuItem,
+            this.cuentasPorCobrarToolStripMenuItem});
+            this.cuentasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cuentasToolStripMenuItem.Image")));
             this.cuentasToolStripMenuItem.Name = "cuentasToolStripMenuItem";
-            this.cuentasToolStripMenuItem.Size = new System.Drawing.Size(66, 21);
+            this.cuentasToolStripMenuItem.Size = new System.Drawing.Size(82, 21);
             this.cuentasToolStripMenuItem.Text = "Cuentas";
             // 
             // inventarioToolStripMenuItem
@@ -262,7 +272,7 @@ namespace Vidrieria.Formularios.MenuPrincipal
             // 
             this.temaClaro.CheckOnClick = true;
             this.temaClaro.Name = "temaClaro";
-            this.temaClaro.Size = new System.Drawing.Size(180, 22);
+            this.temaClaro.Size = new System.Drawing.Size(118, 22);
             this.temaClaro.Text = "Claro";
             this.temaClaro.Click += new System.EventHandler(this.claroToolStripMenuItem_Click);
             // 
@@ -270,7 +280,7 @@ namespace Vidrieria.Formularios.MenuPrincipal
             // 
             this.temaOscuro.CheckOnClick = true;
             this.temaOscuro.Name = "temaOscuro";
-            this.temaOscuro.Size = new System.Drawing.Size(180, 22);
+            this.temaOscuro.Size = new System.Drawing.Size(118, 22);
             this.temaOscuro.Text = "Oscuro";
             this.temaOscuro.Click += new System.EventHandler(this.oscuroToolStripMenuItem_Click);
             // 
@@ -299,6 +309,45 @@ namespace Vidrieria.Formularios.MenuPrincipal
             this.salirDelSistemaToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.salirDelSistemaToolStripMenuItem.Text = "Salir del Sistema";
             this.salirDelSistemaToolStripMenuItem.Click += new System.EventHandler(this.salirDelSistemaToolStripMenuItem_Click);
+            // 
+            // proveedoresToolStripMenuItem
+            // 
+            this.proveedoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.administrarProveedoresToolStripMenuItem,
+            this.nuevaCompraToolStripMenuItem});
+            this.proveedoresToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("proveedoresToolStripMenuItem.Image")));
+            this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(110, 21);
+            this.proveedoresToolStripMenuItem.Text = "Proveedores";
+            // 
+            // administrarProveedoresToolStripMenuItem
+            // 
+            this.administrarProveedoresToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("administrarProveedoresToolStripMenuItem.Image")));
+            this.administrarProveedoresToolStripMenuItem.Name = "administrarProveedoresToolStripMenuItem";
+            this.administrarProveedoresToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.administrarProveedoresToolStripMenuItem.Text = "Administrar Proveedores";
+            this.administrarProveedoresToolStripMenuItem.Click += new System.EventHandler(this.administrarProveedoresToolStripMenuItem_Click);
+            // 
+            // cuentasPorPagarToolStripMenuItem
+            // 
+            this.cuentasPorPagarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cuentasPorPagarToolStripMenuItem.Image")));
+            this.cuentasPorPagarToolStripMenuItem.Name = "cuentasPorPagarToolStripMenuItem";
+            this.cuentasPorPagarToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.cuentasPorPagarToolStripMenuItem.Text = "Cuentas por pagar";
+            // 
+            // cuentasPorCobrarToolStripMenuItem
+            // 
+            this.cuentasPorCobrarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cuentasPorCobrarToolStripMenuItem.Image")));
+            this.cuentasPorCobrarToolStripMenuItem.Name = "cuentasPorCobrarToolStripMenuItem";
+            this.cuentasPorCobrarToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.cuentasPorCobrarToolStripMenuItem.Text = "Cuentas por cobrar";
+            // 
+            // nuevaCompraToolStripMenuItem
+            // 
+            this.nuevaCompraToolStripMenuItem.Name = "nuevaCompraToolStripMenuItem";
+            this.nuevaCompraToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.nuevaCompraToolStripMenuItem.Text = "Nueva Compra";
+            this.nuevaCompraToolStripMenuItem.Click += new System.EventHandler(this.nuevaCompraToolStripMenuItem_Click);
             // 
             // MenuPrincipalForm
             // 
@@ -353,5 +402,10 @@ namespace Vidrieria.Formularios.MenuPrincipal
         private ToolStripMenuItem temaToolStripMenuItem;
         private ToolStripMenuItem temaClaro;
         private ToolStripMenuItem temaOscuro;
+        private ToolStripMenuItem proveedoresToolStripMenuItem;
+        private ToolStripMenuItem administrarProveedoresToolStripMenuItem;
+        private ToolStripMenuItem cuentasPorPagarToolStripMenuItem;
+        private ToolStripMenuItem cuentasPorCobrarToolStripMenuItem;
+        private ToolStripMenuItem nuevaCompraToolStripMenuItem;
     }
 }

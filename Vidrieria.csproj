@@ -168,6 +168,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Buscadores\BuscadoresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Clases\ClasesTrabajos\ListaMaterialesDialog.cs" />
     <Compile Include="Clases\ClasesTrabajos\ListaTrabajosDialog.cs" />
     <Compile Include="Clases\ClasesTrabajos\NuevoTrabajo.cs" />
@@ -183,6 +186,12 @@
     <Compile Include="Formularios\Clientes\AdministrarClientes.cs" />
     <Compile Include="Formularios\Clientes\AdministrarClientes.Designer.cs">
       <DependentUpon>AdministrarClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Compras\NuevaCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Compras\NuevaCompra.Designer.cs">
+      <DependentUpon>NuevaCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Cotizaciones\CotizacionDetalle.cs" />
     <Compile Include="Formularios\Cotizaciones\CotizacionDetalle.Designer.cs">
@@ -238,6 +247,12 @@
     <Compile Include="Formularios\MenuPrincipal\MenuPrincipalForm.Designer.cs">
       <DependentUpon>MenuPrincipalForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Proveedores\AdministrarProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Proveedores\AdministrarProveedores.Designer.cs">
+      <DependentUpon>AdministrarProveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\ReportesEnSistema\ReporteCotizaciones.cs" />
     <Compile Include="Formularios\ReportesEnSistema\ReporteCotizaciones.Designer.cs">
       <DependentUpon>ReporteCotizaciones.cs</DependentUpon>
@@ -260,6 +275,7 @@
     <Compile Include="Modelos\Gasto.cs" />
     <Compile Include="Modelos\Material.cs" />
     <Compile Include="Modelos\NuevaFactura.cs" />
+    <Compile Include="Modelos\NuevoProveedor.cs" />
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -267,6 +283,9 @@
     <EmbeddedResource Include="Clases\ClasesTrabajos\ListaTrabajosDialog.resx" />
     <EmbeddedResource Include="Formularios\Clientes\AdministrarClientes.resx">
       <DependentUpon>AdministrarClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Compras\NuevaCompra.resx">
+      <DependentUpon>NuevaCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Cotizaciones\CotizacionDetalle.resx">
       <DependentUpon>CotizacionDetalle.cs</DependentUpon>
@@ -303,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\MenuPrincipal\MenuPrincipalForm.resx">
       <DependentUpon>MenuPrincipalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Proveedores\AdministrarProveedores.resx">
+      <DependentUpon>AdministrarProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\ReportesEnSistema\ReporteCotizaciones.resx">
       <DependentUpon>ReporteCotizaciones.cs</DependentUpon>
